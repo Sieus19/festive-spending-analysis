@@ -48,7 +48,8 @@ We'll start with a bar plot to see how average spending varies across different 
 ```{r}
 # Bar plot with fct_reorder.
 ggplot(data = festive_spending, 
-       mapping = aes(x = fct_reorder(Region, AvgSpend, .desc = TRUE), y = AvgSpend, fill = Region)) +
+       mapping = aes(x = fct_reorder(Region, AvgSpend, .desc = TRUE), 
+                     y = AvgSpend, fill = Region)) +
   geom_bar(stat = "identity") +
   labs(title = "Average Festive Spending by Region",
        x = "Region",
@@ -79,7 +80,7 @@ Initially, I tried making a scatter plot with multiple aesthetic mappings, but i
 ggplot(festive_spending, aes(x = AvgSpend, y = NumTransactions)) +
   geom_point(aes(color = Region), size = 3, alpha = 0.7) +
   geom_smooth(method = "lm", color = "darkblue", se = TRUE) +
-  labs(title = "Relationship between Average Spending and Number of Transactions",
+labs(title = "Relationship between Average Spending and Number of Transactions",
        x = "Average Spending (INR)",
        y = "Number of Transactions") +
   theme_minimal()
@@ -114,4 +115,3 @@ Now, let's look at what the graphs tell us!
 ## Conclusion
 
 This was a short and sweet project where I got to play around with R and explore how festive seasons influence spending. It was a great way to combine my economics and econometrics knowledge with some practical data visualization. I learned a lot, and hopefully, you did too!
-
